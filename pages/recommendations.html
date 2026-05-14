@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../css/style.css">
   <script src="../js/data.js"></script>
   <script src="../js/main.js" defer></script>
+  <script src="../js/recommendations.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -29,54 +30,113 @@
   </header>
 
   <main>
-    <section class="section page-hero">
-      <div class="container">
+    <section class="section travel-hero recommendations-hero">
+      <div class="container travel-hero-content">
         <p class="section-label">Matching trips</p>
         <h1>Recommendations</h1>
-        <p class="lead-text">Recommended trip packages will appear here after the user submits preferences.</p>
+        <p class="lead-text">Explore trip packages from local demo data and refine the results with simple client-side filters.</p>
       </div>
     </section>
 
     <section class="section compact-section">
+      <div class="container">
+        <div class="results-status" id="results-status" aria-live="polite">
+          Loading available trip packages...
+        </div>
+      </div>
+
       <div class="container recommendations-layout">
         <aside class="filter-panel" aria-label="Recommendation filters">
           <h2>Filters</h2>
-          <p>Filter controls will be added in a later step.</p>
-          <div class="filter-placeholder">Trip type</div>
-          <div class="filter-placeholder">Budget range</div>
-          <div class="filter-placeholder">Duration</div>
-          <div class="filter-placeholder">Interests</div>
+          <p>Adjust the demo results without leaving the page.</p>
+
+          <div class="form-group">
+            <label for="filter-trip-type">Trip type</label>
+            <select id="filter-trip-type" name="filterTripType">
+              <option value="">All</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Romantic">Romantic</option>
+              <option value="Family">Family</option>
+              <option value="Urban">Urban</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="filter-budget">Max budget</label>
+            <input type="number" id="filter-budget" name="filterBudget" min="1" placeholder="Any budget">
+          </div>
+
+          <div class="form-group">
+            <label for="filter-duration">Max duration</label>
+            <input type="number" id="filter-duration" name="filterDuration" min="1" placeholder="Any duration">
+          </div>
+
+          <div class="form-group">
+            <label class="checkbox-label featured-checkbox">
+              <input type="checkbox" id="filter-kosher" name="filterKosher">
+              Kosher-friendly only
+            </label>
+          </div>
+
+          <fieldset class="form-group">
+            <legend>Interest filter</legend>
+            <div class="checkbox-grid filter-interest-grid">
+              <label class="checkbox-label">
+                <input type="checkbox" name="filterInterests" value="Nature">
+                Nature
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="filterInterests" value="Cuisine">
+                Cuisine
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="filterInterests" value="History">
+                History
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="filterInterests" value="Nightlife">
+                Nightlife
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="filterInterests" value="Culture">
+                Culture
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="filterInterests" value="Adventure">
+                Adventure
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="filterInterests" value="Relaxation">
+                Relaxation
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="filterInterests" value="Shopping">
+                Shopping
+              </label>
+            </div>
+          </fieldset>
+
+          <button class="btn btn-secondary full-width" id="clear-filters-button" type="button">Clear Filters</button>
         </aside>
 
         <section class="recommendations-area" aria-label="Recommendations grid">
-          <div class="empty-state">
-            <h2>No recommendations yet</h2>
-            <p>Recommendations will appear here after preferences are submitted.</p>
-            <a class="btn btn-secondary" href="preferences.html">Go to Preferences</a>
-          </div>
-
-          <div class="grid two-column-grid placeholder-card-grid" aria-label="Placeholder recommendation examples">
-            <article class="trip-card placeholder-trip-card">
-              <div class="image-placeholder">Placeholder image</div>
-              <div class="trip-card-body">
-                <p class="placeholder-label">Placeholder card</p>
-                <h3>Matching trip package</h3>
-                <p>Static layout example only. Real demo trips will be added later.</p>
-              </div>
-            </article>
-            <article class="trip-card placeholder-trip-card">
-              <div class="image-placeholder">Placeholder image</div>
-              <div class="trip-card-body">
-                <p class="placeholder-label">Placeholder card</p>
-                <h3>Recommended itinerary</h3>
-                <p>Future cards will include tags, price, duration, rating, and save actions.</p>
-              </div>
-            </article>
-          </div>
+          <div class="recommendations-grid" id="recommendations-grid" aria-label="Trip recommendation cards"></div>
         </section>
       </div>
     </section>
   </main>
+
+  <div class="modal-backdrop" id="save-modal" hidden>
+    <div class="save-modal" role="dialog" aria-modal="true" aria-labelledby="save-modal-title">
+      <h2 id="save-modal-title">Save this trip</h2>
+      <p>Want to save this trip? Create an account or log in to keep it in My Trips.</p>
+      <div class="modal-actions">
+        <a class="btn btn-primary" href="login.html">Log In</a>
+        <a class="btn btn-secondary" href="signup.html">Sign Up</a>
+        <button class="btn btn-secondary" id="close-save-modal" type="button">Close</button>
+      </div>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="container footer-grid">

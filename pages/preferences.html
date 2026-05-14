@@ -29,6 +29,14 @@
   </header>
 
   <main>
+    <section class="section travel-hero preferences-hero">
+      <div class="container travel-hero-content">
+        <p class="section-label">Design your trip</p>
+        <h1>Build a trip around your preferences</h1>
+        <p class="lead-text">Choose the style, budget, duration, travelers, and interests that describe the trip you want.</p>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container two-column-layout">
         <div class="page-intro">
@@ -46,11 +54,10 @@
             <label for="trip-type">Trip type</label>
             <select id="trip-type" name="tripType" aria-describedby="trip-type-error">
               <option value="">Select a trip type</option>
-              <option value="romantic">Romantic</option>
-              <option value="family">Family</option>
-              <option value="adventure">Adventure</option>
-              <option value="culture">Culture</option>
-              <option value="relaxation">Relaxation</option>
+              <option value="Romantic">Romantic</option>
+              <option value="Family">Family</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Urban">Urban</option>
             </select>
             <p class="field-error" id="trip-type-error" aria-live="polite"></p>
           </div>
@@ -79,24 +86,24 @@
             <legend>Interests</legend>
             <div class="checkbox-grid">
               <label class="checkbox-label">
-                <input type="checkbox" name="interests" value="food">
-                Food
+                <input type="checkbox" name="interests" value="Cuisine">
+                Cuisine
               </label>
               <label class="checkbox-label">
-                <input type="checkbox" name="interests" value="nature">
+                <input type="checkbox" name="interests" value="Nature">
                 Nature
               </label>
               <label class="checkbox-label">
-                <input type="checkbox" name="interests" value="history">
+                <input type="checkbox" name="interests" value="History">
                 History
               </label>
               <label class="checkbox-label">
-                <input type="checkbox" name="interests" value="shopping">
+                <input type="checkbox" name="interests" value="Shopping">
                 Shopping
               </label>
               <label class="checkbox-label">
-                <input type="checkbox" name="interests" value="beaches">
-                Beaches
+                <input type="checkbox" name="interests" value="Relaxation">
+                Relaxation
               </label>
             </div>
             <p class="field-error" id="interests-error" aria-live="polite"></p>

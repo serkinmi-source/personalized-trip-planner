@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../css/style.css">
   <script src="../js/data.js"></script>
   <script src="../js/main.js" defer></script>
+  <script src="../js/tripDetails.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -29,69 +30,35 @@
   </header>
 
   <main>
-    <section class="section page-hero">
-      <div class="container">
+    <section class="section travel-hero details-hero trip-detail-hero">
+      <div class="container travel-hero-content" id="trip-hero-content">
         <p class="section-label">Trip package</p>
         <h1>Trip Details</h1>
-        <p class="lead-text">This page will show the selected trip package once dynamic loading is added.</p>
+        <p class="lead-text">Loading selected trip package...</p>
       </div>
     </section>
 
     <section class="section compact-section">
-      <div class="container trip-details-layout">
-        <div class="trip-main">
-          <section class="detail-section">
-            <h2>Trip Overview</h2>
-            <p>A selected trip overview will appear here in a later step, including destination, duration, price estimate, and main tags.</p>
-            <button class="btn btn-primary" type="button">Save Trip</button>
-          </section>
-
-          <section class="detail-section">
-            <h2>Image Gallery</h2>
-            <div class="gallery-placeholder">
-              <div>Large image placeholder</div>
-              <div>Small image placeholder</div>
-              <div>Small image placeholder</div>
-            </div>
-          </section>
-
-          <section class="detail-section">
-            <h2>Day-by-Day Itinerary</h2>
-            <div class="timeline-placeholder">
-              <article>
-                <span>Day 1</span>
-                <p>Arrival and first trip activities will appear here.</p>
-              </article>
-              <article>
-                <span>Day 2</span>
-                <p>Daily plans and suggested stops will appear here.</p>
-              </article>
-              <article>
-                <span>Day 3</span>
-                <p>Additional itinerary details will be added later.</p>
-              </article>
-            </div>
-          </section>
-
-          <section class="detail-section">
-            <h2>Rating and Reviews</h2>
-            <p>Ratings, review count, and traveler review cards will appear here when trip data is added.</p>
-          </section>
+      <div class="container" id="trip-details-content">
+        <div class="empty-state">
+          <h2>Loading trip package...</h2>
+          <p>Please wait while the selected trip is loaded.</p>
         </div>
-
-        <aside class="info-sidebar">
-          <h2>Essential Info</h2>
-          <p>Duration, estimated cost, group size, interests, and helpful tags will appear here.</p>
-          <ul class="info-list">
-            <li>Duration placeholder</li>
-            <li>Budget placeholder</li>
-            <li>Group size placeholder</li>
-            <li>Tags placeholder</li>
-          </ul>
-        </aside>
       </div>
     </section>
   </main>
+
+  <div class="modal-backdrop" id="save-modal" hidden>
+    <div class="save-modal" role="dialog" aria-modal="true" aria-labelledby="save-modal-title">
+      <h2 id="save-modal-title">Save this trip</h2>
+      <p>Want to save this trip? Create an account or log in to keep it in My Trips.</p>
+      <div class="modal-actions">
+        <a class="btn btn-primary" href="login.html">Log In</a>
+        <a class="btn btn-secondary" href="signup.html">Sign Up</a>
+        <button class="btn btn-secondary" id="close-save-modal" type="button">Close</button>
+      </div>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="container footer-grid">

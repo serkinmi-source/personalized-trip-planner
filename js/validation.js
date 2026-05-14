@@ -252,6 +252,18 @@ function handlePreferencesSubmit(event) {
   }
 
   const submitButton = event.target.querySelector('button[type="submit"]');
+  const preferences = {
+    tripType: tripType,
+    budget: Number(budget),
+    durationDays: Number(durationDays),
+    travelers: Number(travelers),
+    interests: Array.from(selectedInterests).map(function (interest) {
+      return interest.value;
+    }),
+    kosherFriendly: Boolean(document.getElementById("kosher-friendly") && document.getElementById("kosher-friendly").checked)
+  };
+
+  sessionStorage.setItem("tripPreferences", JSON.stringify(preferences));
   showFormMessage(formMessageId, "Preferences look good. Redirecting to recommendations...", "success");
 
   if (submitButton) {

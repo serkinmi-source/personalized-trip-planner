@@ -139,6 +139,95 @@ p {
   padding-bottom: 48px;
 }
 
+.travel-hero {
+  background-position: center;
+  background-size: cover;
+  color: #ffffff;
+  overflow: hidden;
+  position: relative;
+}
+
+.travel-hero::before {
+  background: linear-gradient(90deg, rgba(31, 41, 51, 0.76), rgba(31, 41, 51, 0.34));
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.travel-hero-content {
+  max-width: 760px;
+  position: relative;
+  z-index: 1;
+}
+
+.travel-hero h1,
+.travel-hero p {
+  color: #ffffff;
+}
+
+.travel-hero .section-label {
+  color: #BCEAD0;
+}
+
+.home-hero,
+.hero {
+  background-image: url("../assets/images/backgrounds/home-hero.svg");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.hero::before {
+  background: linear-gradient(90deg, rgba(253, 254, 254, 0.94), rgba(253, 254, 254, 0.72), rgba(253, 254, 254, 0.35));
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 1;
+}
+
+.preferences-hero {
+  background-image: url("../assets/images/backgrounds/preferences-hero.svg");
+  padding: 76px 0;
+}
+
+.recommendations-hero {
+  background-image: url("../assets/images/backgrounds/recommendations-hero.svg");
+  padding: 84px 0;
+}
+
+.details-hero {
+  background-image: url("../assets/images/backgrounds/details-hero.svg");
+}
+
+.trip-detail-hero {
+  padding: 84px 0;
+}
+
+.trip-hero-location {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.trip-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.trip-hero-meta span {
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 999px;
+  color: #ffffff;
+  font-weight: 800;
+  padding: 8px 12px;
+}
+
 .grid {
   display: grid;
   gap: 22px;
@@ -416,7 +505,7 @@ p {
   align-items: start;
   display: grid;
   gap: 24px;
-  grid-template-columns: 280px minmax(0, 1fr);
+  grid-template-columns: 320px minmax(0, 1fr);
 }
 
 .recommendations-area,
@@ -432,6 +521,15 @@ p {
   color: var(--muted-text);
   margin-top: 12px;
   padding: 12px;
+}
+
+.filter-panel {
+  position: sticky;
+  top: 96px;
+}
+
+.filter-interest-grid {
+  grid-template-columns: 1fr;
 }
 
 .image-placeholder,
@@ -451,6 +549,171 @@ p {
 
 .trip-card-body {
   padding-top: 18px;
+}
+
+.recommendations-grid {
+  border: 0;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 0;
+  min-height: 0;
+  padding: 0;
+}
+
+.recommendation-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+}
+
+.trip-card-image-link {
+  display: block;
+  overflow: hidden;
+}
+
+.trip-card-image {
+  aspect-ratio: 16 / 10;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+  width: 100%;
+}
+
+.trip-card-image-link:hover .trip-card-image {
+  transform: scale(1.03);
+}
+
+.trip-detail-image {
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.recommendation-card .trip-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 22px;
+}
+
+.trip-card-heading h2 {
+  font-size: 1.35rem;
+}
+
+.trip-location {
+  color: var(--text-dark);
+  font-weight: 800;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 6px 0 18px;
+}
+
+.tag {
+  background: var(--soft-blue);
+  border: 1px solid rgba(41, 128, 185, 0.16);
+  border-radius: 999px;
+  color: var(--text-dark);
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 6px 10px;
+}
+
+.trip-meta {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: auto 0 18px;
+}
+
+.trip-meta div {
+  background: #F8FAFC;
+  border: 1px solid var(--light-border);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.trip-meta dt {
+  color: var(--muted-text);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.trip-meta dd {
+  color: var(--text-dark);
+  font-weight: 800;
+  margin-top: 3px;
+}
+
+.trip-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.trip-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.trip-detail-meta {
+  display: grid;
+  gap: 12px;
+}
+
+.trip-detail-meta div {
+  background: #F8FAFC;
+  border: 1px solid var(--light-border);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.trip-detail-meta dt {
+  color: var(--muted-text);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.trip-detail-meta dd {
+  color: var(--text-dark);
+  font-weight: 800;
+  margin-top: 4px;
+}
+
+.kosher-detail-tag {
+  display: inline-block;
+  margin-top: 18px;
+}
+
+.trip-info-sidebar {
+  position: sticky;
+  top: 96px;
+}
+
+.results-status {
+  background: #ffffff;
+  border: 1px solid var(--light-border);
+  border-left: 5px solid var(--accent-green);
+  border-radius: 8px;
+  box-shadow: 0 10px 24px rgba(31, 41, 51, 0.04);
+  color: var(--text-dark);
+  font-weight: 800;
+  margin-bottom: 24px;
+  padding: 14px 16px;
+}
+
+.recommendations-empty-state {
+  grid-column: 1 / -1;
 }
 
 .placeholder-label {
@@ -489,6 +752,47 @@ p {
   margin-bottom: 4px;
 }
 
+.trip-itinerary-list,
+.review-list {
+  display: grid;
+  gap: 16px;
+}
+
+.itinerary-card,
+.review-card {
+  background: #F8FAFC;
+  border: 1px solid var(--light-border);
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.itinerary-card span {
+  color: var(--accent-green);
+  display: block;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.review-card-header {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.review-card-header h3 {
+  margin-bottom: 0;
+}
+
+.review-card-header span {
+  background: var(--soft-green);
+  border-radius: 999px;
+  color: var(--text-dark);
+  font-weight: 800;
+  padding: 6px 10px;
+}
+
 .info-list {
   color: var(--muted-text);
   padding-left: 18px;
@@ -502,6 +806,37 @@ p {
   color: var(--text-dark);
   font-size: 1.1rem;
   font-weight: 800;
+}
+
+.modal-backdrop {
+  align-items: center;
+  background: rgba(31, 41, 51, 0.62);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 20px;
+  position: fixed;
+  z-index: 30;
+}
+
+.modal-backdrop[hidden] {
+  display: none;
+}
+
+.save-modal {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 24px 80px rgba(31, 41, 51, 0.28);
+  max-width: 480px;
+  padding: 28px;
+  width: 100%;
+}
+
+.modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 /* Forms */
@@ -533,7 +868,8 @@ legend {
 }
 
 input,
-select {
+select,
+textarea {
   background: #ffffff;
   border: 1px solid #C9D2DC;
   border-radius: 10px;
@@ -545,10 +881,23 @@ select {
 }
 
 input:focus,
-select:focus {
+select:focus,
+textarea:focus {
   border-color: var(--primary-blue);
   box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.14);
   outline: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled,
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.68;
 }
 
 .checkbox-grid {
@@ -689,6 +1038,14 @@ fieldset.invalid-field .checkbox-label {
     position: static;
   }
 
+  .filter-panel {
+    position: static;
+  }
+
+  .recommendations-grid {
+    grid-template-columns: 1fr;
+  }
+
   .four-column-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -725,7 +1082,8 @@ fieldset.invalid-field .checkbox-label {
   }
 
   .hero,
-  .section {
+  .section,
+  .travel-hero {
     padding: 52px 0;
   }
 
