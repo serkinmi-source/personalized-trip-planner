@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Smart Family City Trip in Singapore</title>
+  <desc id="desc">Local placeholder image for a Singapore trip package.</desc>
+  <defs><linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#2980B9"/><stop offset="1" stop-color="#27AE60"/></linearGradient></defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <circle cx="650" cy="90" r="90" fill="#ffffff" opacity="0.18"/>
+  <path d="M95 380h610" stroke="#ffffff" stroke-width="10" opacity="0.35"/>
+  <text x="70" y="160" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="700">Singapore</text>
+  <text x="70" y="235" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="34">Smart Family City Trip</text>
+  <text x="70" y="305" fill="#EAF8F0" font-family="Arial, Helvetica, sans-serif" font-size="24">Temporary local demo image</text>
+</svg>
