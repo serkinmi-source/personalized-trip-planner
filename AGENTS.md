@@ -193,13 +193,14 @@ personalized-trip-planner/
 ├── AGENTS.md
 ├── README.md
 ├── index.html
-├── home.html
-├── login.html
-├── signup.html
-├── preferences.html
-├── recommendations.html
-├── trip-details.html
-├── my-trips.html
+├── pages/
+│   ├── home.html
+│   ├── login.html
+│   ├── signup.html
+│   ├── preferences.html
+│   ├── recommendations.html
+│   ├── trip-details.html
+│   └── my-trips.html
 ├── css/
 │   └── style.css
 ├── js/
@@ -214,7 +215,7 @@ personalized-trip-planner/
         └── trips/
 ```
 
-`index.html` may redirect to or duplicate the role of `home.html`, depending on what is most appropriate for the course submission.
+`index.html` is the root entry point. All full website pages are stored inside the `pages/` folder.
 
 ## Demo Data Requirements
 
