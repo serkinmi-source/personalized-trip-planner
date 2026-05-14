@@ -146,17 +146,18 @@ function renderTripCards(trips) {
 
   grid.innerHTML = "";
 
-  trips.forEach(function (trip) {
-    grid.appendChild(createTripCard(trip));
+  trips.forEach(function (trip, index) {
+    grid.appendChild(createTripCard(trip, index));
   });
 }
 
 // Creates one accessible recommendation card.
-// Expects a trip package object from window.tripPackages.
+// Expects a trip package object and its position in the rendered list.
 // Returns an article element ready to be inserted into the page.
-function createTripCard(trip) {
+function createTripCard(trip, index) {
   const card = document.createElement("article");
   card.className = "trip-card recommendation-card";
+  card.style.animationDelay = Math.min(index * 0.035, 0.28) + "s";
 
   const detailsUrl = "trip-details.html?id=" + encodeURIComponent(trip.id);
 

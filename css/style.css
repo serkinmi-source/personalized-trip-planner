@@ -15,12 +15,16 @@
   --light-border: #E5E7EB;
   --soft-blue: #EAF6FC;
   --soft-green: #EAF8F0;
-  --shadow: 0 14px 35px rgba(31, 41, 51, 0.08);
+  --warm-surface: #F8FBFC;
+  --shadow: 0 18px 45px rgba(31, 41, 51, 0.1);
+  --hover-shadow: 0 24px 58px rgba(31, 41, 51, 0.15);
   --radius: 8px;
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(circle at top left, rgba(41, 128, 185, 0.08), transparent 30rem),
+    linear-gradient(180deg, #ffffff 0%, var(--background) 44%, #F6FBFA 100%);
   color: var(--text-dark);
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
@@ -83,11 +87,13 @@ p {
 }
 
 .compact-section {
-  padding-top: 24px;
+  padding-top: 34px;
 }
 
 .soft-section {
-  background: linear-gradient(180deg, var(--background), #F4FAFD);
+  background:
+    radial-gradient(circle at 12% 12%, rgba(39, 174, 96, 0.08), transparent 28rem),
+    linear-gradient(180deg, var(--background), #F4FAFD);
 }
 
 .center-section,
@@ -135,7 +141,11 @@ p {
 }
 
 .page-hero {
-  background: var(--soft-blue);
+  background:
+    linear-gradient(90deg, rgba(253, 254, 254, 0.96), rgba(253, 254, 254, 0.78)),
+    url("../assets/images/backgrounds/recommendations-hero.svg");
+  background-position: center;
+  background-size: cover;
   padding-bottom: 48px;
 }
 
@@ -143,18 +153,22 @@ p {
   background-position: center;
   background-size: cover;
   color: #ffffff;
+  min-height: 340px;
   overflow: hidden;
   position: relative;
 }
 
 .travel-hero::before {
-  background: linear-gradient(90deg, rgba(31, 41, 51, 0.76), rgba(31, 41, 51, 0.34));
+  background:
+    linear-gradient(90deg, rgba(19, 35, 48, 0.82), rgba(31, 41, 51, 0.44), rgba(31, 41, 51, 0.12)),
+    linear-gradient(0deg, rgba(31, 41, 51, 0.2), transparent 60%);
   content: "";
   inset: 0;
   position: absolute;
 }
 
 .travel-hero-content {
+  animation: fadeInUp 0.72s ease both;
   max-width: 760px;
   position: relative;
   z-index: 1;
@@ -178,7 +192,9 @@ p {
 }
 
 .hero::before {
-  background: linear-gradient(90deg, rgba(253, 254, 254, 0.94), rgba(253, 254, 254, 0.72), rgba(253, 254, 254, 0.35));
+  background:
+    linear-gradient(90deg, rgba(253, 254, 254, 0.96), rgba(253, 254, 254, 0.82), rgba(253, 254, 254, 0.34)),
+    radial-gradient(circle at 78% 20%, rgba(39, 174, 96, 0.2), transparent 18rem);
   content: "";
   inset: 0;
   position: absolute;
@@ -204,7 +220,9 @@ p {
 }
 
 .trip-detail-hero {
-  padding: 84px 0;
+  background-position: center;
+  background-size: cover;
+  padding: 108px 0;
 }
 
 .trip-hero-location {
@@ -220,7 +238,8 @@ p {
 }
 
 .trip-hero-meta span {
-  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.18);
   border: 1px solid rgba(255, 255, 255, 0.32);
   border-radius: 999px;
   color: #ffffff;
@@ -247,7 +266,8 @@ p {
 
 /* Header and navigation */
 .site-header {
-  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.9);
   border-bottom: 1px solid var(--light-border);
   position: sticky;
   top: 0;
@@ -266,10 +286,12 @@ p {
   color: var(--text-dark);
   font-size: 1.08rem;
   font-weight: 800;
+  letter-spacing: 0;
 }
 
 .site-logo::before {
-  background: var(--accent-green);
+  background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+  box-shadow: 0 0 0 5px rgba(39, 174, 96, 0.12);
   border-radius: 999px;
   content: "";
   display: inline-block;
@@ -288,6 +310,13 @@ p {
   font: inherit;
   font-weight: 700;
   padding: 8px 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.nav-toggle:hover {
+  border-color: rgba(41, 128, 185, 0.35);
+  box-shadow: 0 10px 24px rgba(31, 41, 51, 0.08);
+  transform: translateY(-1px);
 }
 
 .site-nav ul {
@@ -304,12 +333,13 @@ p {
   font-size: 0.94rem;
   font-weight: 700;
   padding: 9px 12px;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .site-nav a:hover {
   background: var(--soft-blue);
   color: var(--primary-blue);
+  transform: translateY(-1px);
 }
 
 .site-nav .nav-cta {
@@ -349,6 +379,7 @@ p {
   display: inline-block;
   font: inherit;
   font-weight: 800;
+  min-height: 46px;
   padding: 13px 22px;
   text-align: center;
   transition: background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, transform 0.2s ease;
@@ -363,18 +394,19 @@ p {
 
 .btn-primary,
 .button {
-  background: var(--primary-blue);
+  background: linear-gradient(135deg, var(--primary-blue), #1D6FA5);
   color: #ffffff;
 }
 
 .btn-primary:hover,
 .button:hover {
-  background: var(--accent-green);
+  background: linear-gradient(135deg, var(--accent-green), #1E8D4D);
   color: #ffffff;
 }
 
 .btn-secondary {
-  background: var(--soft-green);
+  background: #F3FAF7;
+  border: 1px solid rgba(39, 174, 96, 0.22);
   color: var(--text-dark);
 }
 
@@ -385,7 +417,8 @@ p {
 
 .saved-button,
 .saved-button:hover {
-  background: var(--accent-green);
+  background: linear-gradient(135deg, var(--accent-green), #1E8D4D);
+  box-shadow: 0 10px 24px rgba(39, 174, 96, 0.18);
   color: #ffffff;
   transform: none;
 }
@@ -396,11 +429,11 @@ p {
 
 /* Hero section */
 .hero {
-  background:
-    radial-gradient(circle at top right, rgba(39, 174, 96, 0.18), transparent 34%),
-    linear-gradient(135deg, var(--soft-blue), #ffffff 68%);
+  background-image: url("../assets/images/backgrounds/home-hero.svg");
+  background-position: center;
+  background-size: cover;
   overflow: hidden;
-  padding: 92px 0;
+  padding: 112px 0 96px;
 }
 
 .hero-grid {
@@ -412,21 +445,31 @@ p {
 
 .hero-content {
   animation: fadeInUp 0.7s ease both;
+  max-width: 740px;
 }
 
 .hero-message {
   color: var(--text-dark);
-  font-size: 1.45rem;
+  font-size: 1.55rem;
   font-weight: 700;
   margin-bottom: 14px;
 }
 
+.hero-trust-line {
+  color: var(--text-dark);
+  font-size: 0.94rem;
+  font-weight: 800;
+  margin: 4px 0 24px;
+}
+
 .hero-panel {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid var(--light-border);
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-  padding: 24px;
+  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.66);
+  border-radius: 18px;
+  box-shadow: 0 28px 80px rgba(31, 41, 51, 0.18);
+  overflow: hidden;
+  padding: 26px;
 }
 
 .hero-panel-top,
@@ -443,9 +486,18 @@ p {
 }
 
 .hero-card {
-  background: var(--soft-blue);
-  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(41, 128, 185, 0.92), rgba(39, 174, 96, 0.78)),
+    url("../assets/images/backgrounds/recommendations-hero.svg");
+  background-position: center;
+  background-size: cover;
+  border-radius: 14px;
   padding: 24px;
+}
+
+.hero-card h2,
+.hero-card p {
+  color: #ffffff;
 }
 
 .mini-card-row {
@@ -455,7 +507,9 @@ p {
 }
 
 .mini-card-row span {
-  background: var(--soft-green);
+  background: #ffffff;
+  border: 1px solid var(--light-border);
+  box-shadow: 0 8px 20px rgba(31, 41, 51, 0.06);
   border-radius: 999px;
   color: var(--text-dark);
   font-weight: 700;
@@ -466,6 +520,40 @@ p {
   from {
     opacity: 0;
     transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
   }
 
   to {
@@ -486,8 +574,8 @@ p {
 .empty-state {
   background: var(--surface);
   border: 1px solid var(--light-border);
-  border-radius: var(--radius);
-  box-shadow: 0 10px 24px rgba(31, 41, 51, 0.04);
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(31, 41, 51, 0.055);
   padding: 24px;
 }
 
@@ -495,20 +583,36 @@ p {
 .step-card,
 .travel-style-card,
 .trip-card {
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.24s ease, transform 0.24s ease;
 }
 
 .card:hover,
 .step-card:hover,
 .travel-style-card:hover,
 .trip-card:hover {
-  box-shadow: var(--shadow);
-  transform: translateY(-4px);
+  border-color: rgba(41, 128, 185, 0.18);
+  box-shadow: var(--hover-shadow);
+  transform: translateY(-6px);
+}
+
+.feature-icon {
+  align-items: center;
+  background: linear-gradient(135deg, var(--soft-blue), var(--soft-green));
+  border: 1px solid rgba(41, 128, 185, 0.12);
+  border-radius: 14px;
+  color: var(--primary-blue);
+  display: inline-flex;
+  font-size: 0.78rem;
+  font-weight: 900;
+  height: 42px;
+  justify-content: center;
+  margin-bottom: 16px;
+  width: 42px;
 }
 
 .step-number {
   align-items: center;
-  background: var(--primary-blue);
+  background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
   border-radius: 50%;
   color: #ffffff;
   display: inline-flex;
@@ -520,15 +624,50 @@ p {
 }
 
 .travel-style-card {
-  background: linear-gradient(180deg, #ffffff, #F5FBF8);
+  background: #ffffff;
+  overflow: hidden;
+  padding: 18px;
+}
+
+.travel-style-visual {
+  background-position: center;
+  background-size: cover;
+  border-radius: 12px;
+  height: 120px;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.travel-style-visual::after {
+  background: linear-gradient(180deg, transparent, rgba(31, 41, 51, 0.18));
+  border-radius: inherit;
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.adventure-style {
+  background-image: linear-gradient(135deg, rgba(41, 128, 185, 0.22), rgba(39, 174, 96, 0.22)), url("../assets/images/trips/queenstown-outdoor-adventure.svg");
+}
+
+.romantic-style {
+  background-image: linear-gradient(135deg, rgba(41, 128, 185, 0.2), rgba(39, 174, 96, 0.16)), url("../assets/images/trips/paris-romantic-escape.svg");
+}
+
+.family-style {
+  background-image: linear-gradient(135deg, rgba(41, 128, 185, 0.2), rgba(39, 174, 96, 0.18)), url("../assets/images/trips/orlando-family-adventure.svg");
+}
+
+.urban-style {
+  background-image: linear-gradient(135deg, rgba(41, 128, 185, 0.2), rgba(39, 174, 96, 0.14)), url("../assets/images/trips/new-york-urban-discovery.svg");
 }
 
 .recommendations-layout,
 .trip-details-layout {
   align-items: start;
   display: grid;
-  gap: 24px;
-  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 28px;
+  grid-template-columns: 330px minmax(0, 1fr);
 }
 
 .recommendations-area,
@@ -549,6 +688,13 @@ p {
 .filter-panel {
   position: sticky;
   top: 96px;
+  background:
+    linear-gradient(180deg, #ffffff, #F8FBFC);
+  box-shadow: 0 18px 42px rgba(31, 41, 51, 0.08);
+}
+
+.filter-panel h2 {
+  margin-bottom: 6px;
 }
 
 .filter-interest-grid {
@@ -577,7 +723,7 @@ p {
 .recommendations-grid {
   border: 0;
   display: grid;
-  gap: 24px;
+  gap: 28px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   margin-top: 0;
   min-height: 0;
@@ -585,32 +731,37 @@ p {
 }
 
 .recommendation-card {
+  animation: cardEntrance 0.34s ease both;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   padding: 0;
+  position: relative;
 }
 
 .trip-card-image-link {
+  background: var(--soft-blue);
   display: block;
   overflow: hidden;
 }
 
 .trip-card-image {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 10.5;
   height: auto;
   object-fit: cover;
-  transition: transform 0.2s ease;
+  transition: filter 0.24s ease, transform 0.34s ease;
   width: 100%;
 }
 
 .trip-card-image-link:hover .trip-card-image {
-  transform: scale(1.03);
+  filter: saturate(1.05);
+  transform: scale(1.045);
 }
 
 .trip-detail-image {
   aspect-ratio: 16 / 9;
-  border-radius: 8px;
+  border-radius: 14px;
+  box-shadow: 0 22px 52px rgba(31, 41, 51, 0.12);
   object-fit: cover;
   width: 100%;
 }
@@ -619,11 +770,12 @@ p {
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 22px;
+  padding: 24px;
 }
 
 .trip-card-heading h2 {
   font-size: 1.35rem;
+  margin-bottom: 8px;
 }
 
 .trip-location {
@@ -639,7 +791,7 @@ p {
 }
 
 .tag {
-  background: var(--soft-blue);
+  background: linear-gradient(180deg, #F5FBFF, var(--soft-blue));
   border: 1px solid rgba(41, 128, 185, 0.16);
   border-radius: 999px;
   color: var(--text-dark);
@@ -650,7 +802,7 @@ p {
 
 .trip-meta {
   display: grid;
-  gap: 10px;
+  gap: 12px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   margin: auto 0 18px;
 }
@@ -658,8 +810,8 @@ p {
 .trip-meta div {
   background: #F8FAFC;
   border: 1px solid var(--light-border);
-  border-radius: 8px;
-  padding: 10px;
+  border-radius: 12px;
+  padding: 12px;
 }
 
 .trip-meta dt {
@@ -681,6 +833,10 @@ p {
   gap: 10px;
 }
 
+.save-trip-button {
+  min-width: 96px;
+}
+
 .save-feedback {
   color: var(--accent-green);
   font-weight: 800;
@@ -699,19 +855,19 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 18px;
+  margin-top: 22px;
 }
 
 .trip-detail-meta {
   display: grid;
-  gap: 12px;
+  gap: 14px;
 }
 
 .trip-detail-meta div {
-  background: #F8FAFC;
+  background: linear-gradient(180deg, #ffffff, #F8FAFC);
   border: 1px solid var(--light-border);
-  border-radius: 8px;
-  padding: 12px;
+  border-radius: 12px;
+  padding: 14px;
 }
 
 .trip-detail-meta dt {
@@ -735,14 +891,17 @@ p {
 .trip-info-sidebar {
   position: sticky;
   top: 96px;
+  background:
+    radial-gradient(circle at top right, rgba(39, 174, 96, 0.09), transparent 12rem),
+    #ffffff;
 }
 
 .results-status {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.94);
   border: 1px solid var(--light-border);
   border-left: 5px solid var(--accent-green);
-  border-radius: 8px;
-  box-shadow: 0 10px 24px rgba(31, 41, 51, 0.04);
+  border-radius: 14px;
+  box-shadow: 0 14px 34px rgba(31, 41, 51, 0.06);
   color: var(--text-dark);
   font-weight: 800;
   margin-bottom: 24px;
@@ -797,10 +956,15 @@ p {
 
 .itinerary-card,
 .review-card {
-  background: #F8FAFC;
+  background: linear-gradient(180deg, #ffffff, #F8FAFC);
   border: 1px solid var(--light-border);
-  border-radius: 8px;
-  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(31, 41, 51, 0.04);
+  padding: 20px;
+}
+
+.itinerary-card {
+  border-left: 5px solid var(--accent-green);
 }
 
 .itinerary-card span {
@@ -837,9 +1001,16 @@ p {
 
 .large-empty-state {
   box-shadow: var(--shadow);
+  margin: 0 auto;
+  max-width: 760px;
+  text-align: center;
 }
 
 .my-trips-header {
+  align-items: end;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
   margin-bottom: 24px;
 }
 
@@ -854,7 +1025,14 @@ p {
 }
 
 .remove-trip-button {
+  background: #FEF3F2;
+  border-color: rgba(180, 35, 24, 0.18);
   color: #B42318;
+}
+
+.remove-trip-button:hover {
+  background: #B42318;
+  color: #ffffff;
 }
 
 .empty-message {
@@ -865,7 +1043,9 @@ p {
 
 .modal-backdrop {
   align-items: center;
+  animation: fadeIn 0.2s ease both;
   background: rgba(31, 41, 51, 0.62);
+  backdrop-filter: blur(6px);
   display: flex;
   inset: 0;
   justify-content: center;
@@ -879,8 +1059,10 @@ p {
 }
 
 .save-modal {
+  animation: modalIn 0.24s ease both;
   background: #ffffff;
-  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
   box-shadow: 0 24px 80px rgba(31, 41, 51, 0.28);
   max-width: 480px;
   padding: 28px;
@@ -896,9 +1078,9 @@ p {
 
 /* Forms */
 .form {
-  background: var(--surface);
+  background: rgba(255, 255, 255, 0.96);
   border: 1px solid var(--light-border);
-  border-radius: 8px;
+  border-radius: 16px;
   box-shadow: var(--shadow);
   padding: 28px;
 }
@@ -971,6 +1153,13 @@ button:disabled {
   gap: 10px;
   margin-bottom: 0;
   padding: 11px 12px;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.checkbox-label:hover {
+  background: #ffffff;
+  border-color: rgba(41, 128, 185, 0.28);
+  transform: translateY(-1px);
 }
 
 .checkbox-label input {
@@ -1029,7 +1218,9 @@ fieldset.invalid-field .checkbox-label {
 
 /* Page sections */
 .auth-section {
-  background: linear-gradient(180deg, var(--background), #F4FAFD);
+  background:
+    radial-gradient(circle at 85% 10%, rgba(39, 174, 96, 0.12), transparent 22rem),
+    linear-gradient(180deg, var(--background), #F4FAFD);
 }
 
 .planner-form {
@@ -1089,6 +1280,14 @@ fieldset.invalid-field .checkbox-label {
     grid-template-columns: 1fr;
   }
 
+  .hero {
+    padding: 78px 0;
+  }
+
+  .travel-hero {
+    min-height: 300px;
+  }
+
   .page-intro {
     position: static;
   }
@@ -1103,6 +1302,11 @@ fieldset.invalid-field .checkbox-label {
 
   .my-trips-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .my-trips-header {
+    align-items: start;
+    flex-direction: column;
   }
 
   .four-column-grid {
@@ -1146,6 +1350,14 @@ fieldset.invalid-field .checkbox-label {
     padding: 52px 0;
   }
 
+  .travel-hero::before {
+    background: linear-gradient(90deg, rgba(19, 35, 48, 0.86), rgba(31, 41, 51, 0.54));
+  }
+
+  .hero::before {
+    background: linear-gradient(90deg, rgba(253, 254, 254, 0.96), rgba(253, 254, 254, 0.86));
+  }
+
   .compact-section {
     padding-top: 16px;
   }
@@ -1163,6 +1375,21 @@ fieldset.invalid-field .checkbox-label {
   .gallery-placeholder div:first-child {
     grid-row: auto;
     min-height: 180px;
+  }
+
+  .trip-card-actions,
+  .modal-actions,
+  .trip-detail-actions {
+    flex-direction: column;
+  }
+
+  .trip-card-actions .btn,
+  .trip-card-actions .button,
+  .modal-actions .btn,
+  .modal-actions .button,
+  .trip-detail-actions .btn,
+  .trip-detail-actions .button {
+    width: 100%;
   }
 }
 
@@ -1195,5 +1422,24 @@ fieldset.invalid-field .checkbox-label {
   .empty-state,
   .hero-panel {
     padding: 20px;
+  }
+
+  .trip-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .travel-style-visual {
+    height: 104px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
   }
 }

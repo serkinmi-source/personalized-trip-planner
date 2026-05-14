@@ -130,9 +130,14 @@ function renderTripDetails(trip) {
 // Updates the existing hero content container.
 function renderHero(trip) {
   const hero = document.getElementById("trip-hero-content");
+  const heroSection = document.querySelector(".trip-detail-hero");
 
   if (!hero) {
     return;
+  }
+
+  if (heroSection) {
+    heroSection.style.backgroundImage = 'url("' + trip.image + '")';
   }
 
   hero.innerHTML =
