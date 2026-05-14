@@ -15,7 +15,7 @@ window.tripPackages = [
     kosherFriendly: true,
     rating: 4.8,
     reviewCount: 1840,
-    image: "../assets/images/trips/paris-romantic-escape.svg",
+    image: "../assets/images/trips/paris-romantic-escape.jpg",
     shortDescription: "A relaxed Paris package with charming neighborhoods, classic museums, and memorable dining moments.",
     itinerary: [
       {
@@ -61,7 +61,7 @@ window.tripPackages = [
     kosherFriendly: false,
     rating: 4.6,
     reviewCount: 2150,
-    image: "../assets/images/trips/orlando-family-adventure.svg",
+    image: "../assets/images/trips/orlando-family-adventure.jpg",
     shortDescription: "A family-friendly Orlando package built around theme parks, easy meals, and flexible rest time.",
     itinerary: [
       {
@@ -107,7 +107,7 @@ window.tripPackages = [
     kosherFriendly: false,
     rating: 4.9,
     reviewCount: 2360,
-    image: "../assets/images/trips/tokyo-food-weekend.svg",
+    image: "../assets/images/trips/tokyo-food-weekend.jpg",
     shortDescription: "A compact Tokyo city package focused on food districts, markets, shopping streets, and evening lights.",
     itinerary: [
       {
@@ -153,7 +153,7 @@ window.tripPackages = [
     kosherFriendly: true,
     rating: 4.5,
     reviewCount: 980,
-    image: "../assets/images/trips/athens-nature-history.svg",
+    image: "../assets/images/trips/athens-nature-history.jpg",
     shortDescription: "A Greece package combining Athens history, coastal views, and easy outdoor discovery.",
     itinerary: [
       {
@@ -199,7 +199,7 @@ window.tripPackages = [
     kosherFriendly: true,
     rating: 4.7,
     reviewCount: 1420,
-    image: "../assets/images/trips/barcelona-culture-beach.svg",
+    image: "../assets/images/trips/barcelona-culture-beach.jpg",
     shortDescription: "A Barcelona package with architecture, markets, beach time, and relaxed city exploration.",
     itinerary: [
       {
@@ -245,7 +245,7 @@ window.tripPackages = [
     kosherFriendly: true,
     rating: 4.6,
     reviewCount: 2500,
-    image: "../assets/images/trips/new-york-urban-discovery.svg",
+    image: "../assets/images/trips/new-york-urban-discovery.jpg",
     shortDescription: "A fast-paced New York package with neighborhoods, skyline views, museums, and food stops.",
     itinerary: [
       {
@@ -291,7 +291,7 @@ window.tripPackages = [
     kosherFriendly: false,
     rating: 4.4,
     reviewCount: 1120,
-    image: "../assets/images/trips/bangkok-family-culture.svg",
+    image: "../assets/images/trips/bangkok-family-culture.jpg",
     shortDescription: "A family Bangkok package with temples, markets, river views, and flexible daily pacing.",
     itinerary: [
       {
@@ -337,7 +337,7 @@ window.tripPackages = [
     kosherFriendly: true,
     rating: 4.8,
     reviewCount: 1760,
-    image: "../assets/images/trips/rome-history-romance.svg",
+    image: "../assets/images/trips/rome-history-romance.jpg",
     shortDescription: "A romantic Rome package with ancient landmarks, neighborhood walks, and classic Italian dining.",
     itinerary: [
       {
@@ -383,7 +383,7 @@ window.tripPackages = [
     kosherFriendly: true,
     rating: 4.5,
     reviewCount: 860,
-    image: "../assets/images/trips/amsterdam-canal-weekend.svg",
+    image: "../assets/images/trips/amsterdam-canal-weekend.jpg",
     shortDescription: "A walkable Amsterdam package with canal views, museum time, and relaxed neighborhood discovery.",
     itinerary: [
       {
@@ -429,7 +429,7 @@ window.tripPackages = [
     kosherFriendly: true,
     rating: 4.6,
     reviewCount: 1340,
-    image: "../assets/images/trips/dubai-family-luxury.svg",
+    image: "../assets/images/trips/dubai-family-luxury.jpg",
     shortDescription: "A Dubai family package with modern attractions, shopping, desert views, and comfortable pacing.",
     itinerary: [
       {
@@ -475,7 +475,7 @@ window.tripPackages = [
     kosherFriendly: true,
     rating: 4.7,
     reviewCount: 940,
-    image: "../assets/images/trips/prague-history-weekend.svg",
+    image: "../assets/images/trips/prague-history-weekend.jpg",
     shortDescription: "A Prague package with old town streets, castle views, bridges, and cozy evening walks.",
     itinerary: [
       {
@@ -521,7 +521,7 @@ window.tripPackages = [
     kosherFriendly: true,
     rating: 4.6,
     reviewCount: 1010,
-    image: "../assets/images/trips/lisbon-coastal-culture.svg",
+    image: "../assets/images/trips/lisbon-coastal-culture.jpg",
     shortDescription: "A Lisbon package with hilltop views, historic districts, coastal air, and local food stops.",
     itinerary: [
       {
@@ -567,7 +567,7 @@ window.tripPackages = [
     kosherFriendly: false,
     rating: 4.8,
     reviewCount: 1220,
-    image: "../assets/images/trips/cape-town-adventure.svg",
+    image: "../assets/images/trips/cape-town-adventure.jpg",
     shortDescription: "A Cape Town adventure package with mountain views, coastline drives, and active outdoor days.",
     itinerary: [
       {
@@ -613,7 +613,7 @@ window.tripPackages = [
     kosherFriendly: false,
     rating: 4.9,
     reviewCount: 1180,
-    image: "../assets/images/trips/queenstown-outdoor-adventure.svg",
+    image: "../assets/images/trips/queenstown-outdoor-adventure.jpg",
     shortDescription: "A Queenstown package for outdoor travelers with lake views, hikes, and adventure activities.",
     itinerary: [
       {
@@ -659,7 +659,7 @@ window.tripPackages = [
     kosherFriendly: false,
     rating: 4.8,
     reviewCount: 1540,
-    image: "../assets/images/trips/kyoto-culture-retreat.svg",
+    image: "../assets/images/trips/kyoto-culture-retreat.jpg",
     shortDescription: "A calm Kyoto package with temples, gardens, traditional streets, and peaceful walks.",
     itinerary: [
       {
@@ -705,7 +705,7 @@ window.tripPackages = [
     kosherFriendly: false,
     rating: 4.7,
     reviewCount: 870,
-    image: "../assets/images/trips/reykjavik-northern-adventure.svg",
+    image: "../assets/images/trips/reykjavik-northern-adventure.jpg",
     shortDescription: "An Iceland package with dramatic landscapes, geothermal stops, and northern sky experiences.",
     itinerary: [
       {
@@ -751,7 +751,7 @@ window.tripPackages = [
     kosherFriendly: true,
     rating: 4.6,
     reviewCount: 1980,
-    image: "../assets/images/trips/london-family-icons.svg",
+    image: "../assets/images/trips/london-family-icons.jpg",
     shortDescription: "A London family package with landmarks, museums, parks, and simple transport-friendly days.",
     itinerary: [
       {
@@ -797,7 +797,7 @@ window.tripPackages = [
     kosherFriendly: false,
     rating: 4.5,
     reviewCount: 910,
-    image: "../assets/images/trips/vancouver-nature-city.svg",
+    image: "../assets/images/trips/vancouver-nature-city.jpg",
     shortDescription: "A Vancouver package combining city neighborhoods, waterfront paths, forests, and mountain views.",
     itinerary: [
       {
@@ -843,7 +843,7 @@ window.tripPackages = [
     kosherFriendly: true,
     rating: 4.4,
     reviewCount: 760,
-    image: "../assets/images/trips/buenos-aires-culture-nightlife.svg",
+    image: "../assets/images/trips/buenos-aires-culture-nightlife.jpg",
     shortDescription: "A Buenos Aires package with colorful neighborhoods, food experiences, culture, and evening energy.",
     itinerary: [
       {
@@ -889,7 +889,7 @@ window.tripPackages = [
     kosherFriendly: true,
     rating: 4.7,
     reviewCount: 1460,
-    image: "../assets/images/trips/singapore-family-city.svg",
+    image: "../assets/images/trips/singapore-family-city.jpg",
     shortDescription: "A Singapore family package with modern attractions, gardens, food areas, and simple transportation.",
     itinerary: [
       {

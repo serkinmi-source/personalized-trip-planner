@@ -647,19 +647,19 @@ p {
 }
 
 .adventure-style {
-  background-image: linear-gradient(135deg, rgba(41, 128, 185, 0.22), rgba(39, 174, 96, 0.22)), url("../assets/images/trips/queenstown-outdoor-adventure.svg");
+  background-image: linear-gradient(135deg, rgba(41, 128, 185, 0.22), rgba(39, 174, 96, 0.22)), url("../assets/images/trips/queenstown-outdoor-adventure.jpg");
 }
 
 .romantic-style {
-  background-image: linear-gradient(135deg, rgba(41, 128, 185, 0.2), rgba(39, 174, 96, 0.16)), url("../assets/images/trips/paris-romantic-escape.svg");
+  background-image: linear-gradient(135deg, rgba(41, 128, 185, 0.2), rgba(39, 174, 96, 0.16)), url("../assets/images/trips/paris-romantic-escape.jpg");
 }
 
 .family-style {
-  background-image: linear-gradient(135deg, rgba(41, 128, 185, 0.2), rgba(39, 174, 96, 0.18)), url("../assets/images/trips/orlando-family-adventure.svg");
+  background-image: linear-gradient(135deg, rgba(41, 128, 185, 0.2), rgba(39, 174, 96, 0.18)), url("../assets/images/trips/orlando-family-adventure.jpg");
 }
 
 .urban-style {
-  background-image: linear-gradient(135deg, rgba(41, 128, 185, 0.2), rgba(39, 174, 96, 0.14)), url("../assets/images/trips/new-york-urban-discovery.svg");
+  background-image: linear-gradient(135deg, rgba(41, 128, 185, 0.2), rgba(39, 174, 96, 0.14)), url("../assets/images/trips/new-york-urban-discovery.jpg");
 }
 
 .recommendations-layout,
