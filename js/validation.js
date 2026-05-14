@@ -126,7 +126,19 @@ function handleLoginSubmit(event) {
   }
 
   if (isValid) {
-    showFormMessage(formMessageId, "Login details look good. Full authentication will be added in a later phase.", "success");
+    if (window.appStorage) {
+      window.appStorage.setCurrentUser({
+        isLoggedIn: true,
+        firstName: "Traveler",
+        email: email
+      });
+    }
+
+    showFormMessage(formMessageId, "Login successful. Redirecting to My Trips...", "success");
+
+    setTimeout(function () {
+      window.location.href = "my-trips.html";
+    }, 900);
   } else {
     showFormMessage(formMessageId, "Please fix the highlighted fields.", "error");
   }
@@ -186,7 +198,19 @@ function handleSignupSubmit(event) {
   }
 
   if (isValid) {
-    showFormMessage(formMessageId, "Account details look good. Full signup will be added in a later phase.", "success");
+    if (window.appStorage) {
+      window.appStorage.setCurrentUser({
+        isLoggedIn: true,
+        firstName: firstName,
+        email: email
+      });
+    }
+
+    showFormMessage(formMessageId, "Account created for demo. Redirecting to Plan a Trip...", "success");
+
+    setTimeout(function () {
+      window.location.href = "preferences.html";
+    }, 900);
   } else {
     showFormMessage(formMessageId, "Please fix the highlighted fields.", "error");
   }

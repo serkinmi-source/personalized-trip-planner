@@ -324,6 +324,22 @@ p {
   color: #ffffff;
 }
 
+.site-nav .nav-greeting {
+  background: var(--soft-green);
+  color: var(--text-dark);
+  cursor: default;
+}
+
+.site-nav .logout-link {
+  background: #FEF3F2;
+  color: #B42318;
+}
+
+.site-nav .logout-link:hover {
+  background: #B42318;
+  color: #ffffff;
+}
+
 /* Buttons */
 .btn,
 .button {
@@ -365,6 +381,13 @@ p {
 .btn-secondary:hover {
   background: var(--accent-green);
   color: #ffffff;
+}
+
+.saved-button,
+.saved-button:hover {
+  background: var(--accent-green);
+  color: #ffffff;
+  transform: none;
 }
 
 .full-width {
@@ -658,6 +681,20 @@ p {
   gap: 10px;
 }
 
+.save-feedback {
+  color: var(--accent-green);
+  font-weight: 800;
+  margin: 12px 0 0;
+  min-height: 1.4em;
+}
+
+.save-feedback--visible {
+  background: var(--soft-green);
+  border: 1px solid rgba(39, 174, 96, 0.3);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
 .trip-detail-actions {
   display: flex;
   flex-wrap: wrap;
@@ -800,6 +837,24 @@ p {
 
 .large-empty-state {
   box-shadow: var(--shadow);
+}
+
+.my-trips-header {
+  margin-bottom: 24px;
+}
+
+.my-trips-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.saved-trip-card .trip-meta {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.remove-trip-button {
+  color: #B42318;
 }
 
 .empty-message {
@@ -1046,6 +1101,10 @@ fieldset.invalid-field .checkbox-label {
     grid-template-columns: 1fr;
   }
 
+  .my-trips-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .four-column-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1095,7 +1154,9 @@ fieldset.invalid-field .checkbox-label {
   .two-column-grid,
   .form-row,
   .checkbox-grid,
-  .gallery-placeholder {
+  .gallery-placeholder,
+  .my-trips-grid,
+  .saved-trip-card .trip-meta {
     grid-template-columns: 1fr;
   }
 

@@ -180,12 +180,19 @@ function createTripCard(trip) {
       '</dl>' +
       '<div class="trip-card-actions">' +
         '<a class="btn btn-primary" href="' + detailsUrl + '">View Details</a>' +
-        '<button class="btn btn-secondary save-trip-button" type="button">Save</button>' +
+        '<button class="btn btn-secondary save-trip-button" type="button" data-trip-id="' + trip.id + '">Save</button>' +
       '</div>' +
     '</div>';
 
   const saveButton = card.querySelector(".save-trip-button");
-  saveButton.addEventListener("click", openSaveModal);
+
+  if (window.appStorage && window.appStorage.isTripSaved(trip.id)) {
+    setSavedButtonState(saveButton, "Saved");
+  }
+
+  saveButton.addEventListener("click", function () {
+    handleSaveTrip(trip.id, saveButton);
+  });
 
   return card;
 }
@@ -228,6 +235,33 @@ function openSaveModal() {
   if (modal) {
     modal.hidden = false;
   }
+}
+
+// Saves a trip for logged-in demo users or opens the guest modal.
+// Expects a trip id and the clicked save button.
+// Updates localStorage only when a demo user is logged in.
+function handleSaveTrip(tripId, saveButton) {
+  if (!window.appStorage || !window.appStorage.isUserLoggedIn()) {
+    openSaveModal();
+    return;
+  }
+
+  window.appStorage.saveTripById(tripId);
+  setSavedButtonState(saveButton, "Saved");
+  updateResultsMessage("Trip saved to My Trips.");
+}
+
+// Updates a save button after a trip has been saved.
+// Expects the button element and display text.
+// Prevents duplicate save clicks for the same visible card.
+function setSavedButtonState(button, text) {
+  if (!button) {
+    return;
+  }
+
+  button.textContent = text;
+  button.classList.add("saved-button");
+  button.disabled = true;
 }
 
 // Closes the save placeholder modal.
@@ -315,6 +349,9 @@ function initializeSaveModal() {
   }
 }
 
+// Checks strict filters that should hide a trip immediately.
+// Expects a trip object and current filters.
+// Returns true when the trip passes budget, duration, and kosher rules.
 function passesHardFilters(trip, filters) {
   if (filters.maxBudget && trip.estimatedPrice > filters.maxBudget) {
     return false;
@@ -331,10 +368,16 @@ function passesHardFilters(trip, filters) {
   return true;
 }
 
+// Checks whether any recommendation filter is active.
+// Expects the current filters object.
+// Returns true when at least one filter has a value.
 function hasAnyActiveFilter(filters) {
   return Boolean(filters.tripType || filters.maxBudget || filters.maxDuration || filters.kosherOnly || filters.interests.length > 0);
 }
 
+// Builds visible tag markup for a recommendation card.
+// Expects a trip object.
+// Returns HTML for tags, including Kosher-friendly when relevant.
 function createTagsMarkup(trip) {
   const tags = trip.kosherFriendly ? trip.tags.concat("Kosher-friendly") : trip.tags;
 
@@ -343,6 +386,9 @@ function createTagsMarkup(trip) {
   }).join("");
 }
 
+// Resets all recommendation filter controls.
+// Expects filter controls to exist on the page.
+// Clears visible controls but does not render by itself.
 function clearRecommendationFilters() {
   const tripTypeSelect = document.getElementById("filter-trip-type");
   const budgetInput = document.getElementById("filter-budget");
@@ -371,6 +417,9 @@ function clearRecommendationFilters() {
   });
 }
 
+// Reads a form control value safely.
+// Expects an element id.
+// Returns a trimmed string or an empty string.
 function getElementValue(elementId) {
   const element = document.getElementById(elementId);
   return element ? element.value.trim() : "";

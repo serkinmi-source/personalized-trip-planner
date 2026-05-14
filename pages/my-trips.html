@@ -6,7 +6,9 @@
   <title>Personalized Trip Planner | My Trips</title>
   <link rel="stylesheet" href="../css/style.css">
   <script src="../js/data.js"></script>
+  <script src="../js/storage.js"></script>
   <script src="../js/main.js" defer></script>
+  <script src="../js/myTrips.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -29,14 +31,19 @@
   </header>
 
   <main>
-    <section class="section empty-page-section">
-      <div class="container narrow-container">
+    <section class="section page-hero">
+      <div class="container">
+        <p class="section-label">Saved trips</p>
+        <h1>My Trips</h1>
+        <p class="lead-text">View and manage the trip packages saved during this frontend demo.</p>
+      </div>
+    </section>
+
+    <section class="section compact-section">
+      <div class="container" id="my-trips-content">
         <div class="empty-state large-empty-state">
-          <p class="section-label">Saved trips</p>
-          <h1>My Trips</h1>
-          <p class="empty-message">You have not saved any trips yet.</p>
-          <p>Start by choosing your preferences and exploring trip packages. Saved trips will appear here in a later step.</p>
-          <a class="btn btn-primary" href="preferences.html">Start Planning</a>
+          <h2>Loading saved trips...</h2>
+          <p>Please wait while saved trips are loaded.</p>
         </div>
       </div>
     </section>

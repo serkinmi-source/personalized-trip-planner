@@ -59,6 +59,7 @@ function renderTripDetails(trip) {
             '<button class="btn btn-primary" id="save-trip-button" type="button">Save Trip</button>' +
             '<a class="btn btn-secondary" href="recommendations.html">Back to Recommendations</a>' +
           '</div>' +
+          '<p class="save-feedback" id="trip-save-feedback" aria-live="polite"></p>' +
         '</section>' +
         '<section class="detail-section">' +
           '<h2>Day-by-Day Itinerary</h2>' +
@@ -114,7 +115,13 @@ function renderTripDetails(trip) {
   const saveButton = document.getElementById("save-trip-button");
 
   if (saveButton) {
-    saveButton.addEventListener("click", openSaveModal);
+    if (window.appStorage && window.appStorage.isTripSaved(trip.id)) {
+      setTripDetailsSavedState(saveButton, "Saved to My Trips");
+    }
+
+    saveButton.addEventListener("click", function () {
+      handleTripDetailsSave(trip.id, saveButton);
+    });
   }
 }
 
@@ -202,6 +209,45 @@ function openSaveModal() {
 
   if (modal) {
     modal.hidden = false;
+  }
+}
+
+// Saves the current trip for logged-in demo users or opens the guest modal.
+// Expects the current trip id and Save Trip button.
+// Updates localStorage only when a demo user is logged in.
+function handleTripDetailsSave(tripId, saveButton) {
+  if (!window.appStorage || !window.appStorage.isUserLoggedIn()) {
+    openSaveModal();
+    return;
+  }
+
+  window.appStorage.saveTripById(tripId);
+  setTripDetailsSavedState(saveButton, "Saved to My Trips");
+  showTripSaveFeedback("Trip saved to My Trips.");
+}
+
+// Updates the trip details save button after saving.
+// Expects the button element and display text.
+// Prevents duplicate save clicks on this page.
+function setTripDetailsSavedState(button, text) {
+  if (!button) {
+    return;
+  }
+
+  button.textContent = text;
+  button.classList.add("saved-button");
+  button.disabled = true;
+}
+
+// Shows save feedback on the trip details page.
+// Expects a message string.
+// Writes visible feedback below the action area.
+function showTripSaveFeedback(message) {
+  const feedback = document.getElementById("trip-save-feedback");
+
+  if (feedback) {
+    feedback.textContent = message;
+    feedback.classList.add("save-feedback--visible");
   }
 }
 
