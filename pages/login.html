@@ -11,55 +11,66 @@
   <header class="site-header">
     <div class="container header-content">
       <a class="site-logo" href="home.html">Personalized Trip Planner</a>
-      <nav class="site-nav" aria-label="Main navigation">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        Menu
+      </button>
+      <nav class="site-nav" id="primary-nav" aria-label="Main navigation">
         <ul>
           <li><a href="home.html">Home</a></li>
           <li><a href="preferences.html">Plan a Trip</a></li>
           <li><a href="recommendations.html">Recommendations</a></li>
           <li><a href="my-trips.html">My Trips</a></li>
           <li><a href="login.html">Login</a></li>
-          <li><a href="signup.html">Sign Up</a></li>
+          <li><a class="nav-cta" href="signup.html">Sign Up</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="section">
-      <div class="container narrow-container">
-        <h1>Login</h1>
-        <p>Access your account to save and manage favorite trips.</p>
+    <section class="section auth-section">
+      <div class="container two-column-layout">
+        <div class="page-intro">
+          <p class="section-label">Welcome back</p>
+          <h1>Login</h1>
+          <p class="lead-text">Access your account to save trips, return to favorites, and continue planning from where you left off.</p>
+        </div>
 
-        <form class="form" action="#" method="post">
+        <form class="form auth-card" action="#" method="post">
           <div class="form-group">
             <label for="login-email">Email</label>
-            <input type="email" id="login-email" name="email" autocomplete="email">
+            <input type="email" id="login-email" name="email" autocomplete="email" placeholder="you@example.com">
           </div>
 
           <div class="form-group">
             <label for="login-password">Password</label>
-            <input type="password" id="login-password" name="password" autocomplete="current-password">
+            <input type="password" id="login-password" name="password" autocomplete="current-password" placeholder="Enter your password">
           </div>
 
-          <button class="button" type="submit">Login</button>
+          <button class="btn btn-primary full-width" type="submit">Login</button>
+          <p class="form-note">New here? <a href="signup.html">Create an account</a>.</p>
         </form>
-
-        <p class="form-note">New here? <a href="signup.html">Create an account</a>.</p>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-content">
-      <p>Email: <a href="mailto:support@personalizedtripplanner.com">support@personalizedtripplanner.com</a></p>
-      <p>Phone: +1 (555) 123-4567</p>
-      <p>
+    <div class="container footer-grid">
+      <div>
+        <h2>Personalized Trip Planner</h2>
+        <p>Plan friendly, personalized travel experiences from your preferences.</p>
+      </div>
+      <address class="footer-contact">
+        <p>Email: <a href="mailto:support@personalizedtripplanner.com">support@personalizedtripplanner.com</a></p>
+        <p>Phone: +1 (555) 123-4567</p>
+      </address>
+      <div class="footer-links">
         <a href="#">Facebook</a>
         <a href="#">Instagram</a>
         <a href="#">Twitter</a>
         <a href="#">Privacy Policy</a>
         <a href="#">Terms</a>
-      </p>
+      </div>
     </div>
   </footer>
 </body>

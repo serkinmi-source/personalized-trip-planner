@@ -11,54 +11,104 @@
   <header class="site-header">
     <div class="container header-content">
       <a class="site-logo" href="home.html">Personalized Trip Planner</a>
-      <nav class="site-nav" aria-label="Main navigation">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        Menu
+      </button>
+      <nav class="site-nav" id="primary-nav" aria-label="Main navigation">
         <ul>
           <li><a href="home.html">Home</a></li>
           <li><a href="preferences.html">Plan a Trip</a></li>
           <li><a href="recommendations.html">Recommendations</a></li>
           <li><a href="my-trips.html">My Trips</a></li>
           <li><a href="login.html">Login</a></li>
-          <li><a href="signup.html">Sign Up</a></li>
+          <li><a class="nav-cta" href="signup.html">Sign Up</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="section">
+    <section class="section page-hero">
       <div class="container">
+        <p class="section-label">Trip package</p>
         <h1>Trip Details</h1>
+        <p class="lead-text">This page will show the selected trip package once dynamic loading is added.</p>
+      </div>
+    </section>
 
-        <section class="placeholder-panel">
-          <h2>Trip Overview</h2>
-          <p>A selected trip overview will appear here in a later step.</p>
-          <button class="button" type="button">Save Trip</button>
-        </section>
+    <section class="section compact-section">
+      <div class="container trip-details-layout">
+        <div class="trip-main">
+          <section class="detail-section">
+            <h2>Trip Overview</h2>
+            <p>A selected trip overview will appear here in a later step, including destination, duration, price estimate, and main tags.</p>
+            <button class="btn btn-primary" type="button">Save Trip</button>
+          </section>
 
-        <section class="placeholder-panel">
-          <h2>Itinerary</h2>
-          <p>Daily itinerary details will be added when dynamic trip data is implemented.</p>
-        </section>
+          <section class="detail-section">
+            <h2>Image Gallery</h2>
+            <div class="gallery-placeholder">
+              <div>Large image placeholder</div>
+              <div>Small image placeholder</div>
+              <div>Small image placeholder</div>
+            </div>
+          </section>
 
-        <section class="placeholder-panel">
-          <h2>Reviews</h2>
-          <p>Traveler reviews will appear here when review content is added.</p>
-        </section>
+          <section class="detail-section">
+            <h2>Day-by-Day Itinerary</h2>
+            <div class="timeline-placeholder">
+              <article>
+                <span>Day 1</span>
+                <p>Arrival and first trip activities will appear here.</p>
+              </article>
+              <article>
+                <span>Day 2</span>
+                <p>Daily plans and suggested stops will appear here.</p>
+              </article>
+              <article>
+                <span>Day 3</span>
+                <p>Additional itinerary details will be added later.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="detail-section">
+            <h2>Rating and Reviews</h2>
+            <p>Ratings, review count, and traveler review cards will appear here when trip data is added.</p>
+          </section>
+        </div>
+
+        <aside class="info-sidebar">
+          <h2>Essential Info</h2>
+          <p>Duration, estimated cost, group size, interests, and helpful tags will appear here.</p>
+          <ul class="info-list">
+            <li>Duration placeholder</li>
+            <li>Budget placeholder</li>
+            <li>Group size placeholder</li>
+            <li>Tags placeholder</li>
+          </ul>
+        </aside>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-content">
-      <p>Email: <a href="mailto:support@personalizedtripplanner.com">support@personalizedtripplanner.com</a></p>
-      <p>Phone: +1 (555) 123-4567</p>
-      <p>
+    <div class="container footer-grid">
+      <div>
+        <h2>Personalized Trip Planner</h2>
+        <p>Plan friendly, personalized travel experiences from your preferences.</p>
+      </div>
+      <address class="footer-contact">
+        <p>Email: <a href="mailto:support@personalizedtripplanner.com">support@personalizedtripplanner.com</a></p>
+        <p>Phone: +1 (555) 123-4567</p>
+      </address>
+      <div class="footer-links">
         <a href="#">Facebook</a>
         <a href="#">Instagram</a>
         <a href="#">Twitter</a>
         <a href="#">Privacy Policy</a>
         <a href="#">Terms</a>
-      </p>
+      </div>
     </div>
   </footer>
 </body>

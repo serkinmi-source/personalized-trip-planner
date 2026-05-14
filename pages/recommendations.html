@@ -11,48 +11,89 @@
   <header class="site-header">
     <div class="container header-content">
       <a class="site-logo" href="home.html">Personalized Trip Planner</a>
-      <nav class="site-nav" aria-label="Main navigation">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        Menu
+      </button>
+      <nav class="site-nav" id="primary-nav" aria-label="Main navigation">
         <ul>
           <li><a href="home.html">Home</a></li>
           <li><a href="preferences.html">Plan a Trip</a></li>
           <li><a href="recommendations.html">Recommendations</a></li>
           <li><a href="my-trips.html">My Trips</a></li>
           <li><a href="login.html">Login</a></li>
-          <li><a href="signup.html">Sign Up</a></li>
+          <li><a class="nav-cta" href="signup.html">Sign Up</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="section">
+    <section class="section page-hero">
       <div class="container">
+        <p class="section-label">Matching trips</p>
         <h1>Recommendations</h1>
-        <p>Recommended trip packages will be displayed here based on submitted preferences.</p>
+        <p class="lead-text">Recommended trip packages will appear here after the user submits preferences.</p>
+      </div>
+    </section>
 
-        <section class="placeholder-panel" aria-label="Recommendation filters">
+    <section class="section compact-section">
+      <div class="container recommendations-layout">
+        <aside class="filter-panel" aria-label="Recommendation filters">
           <h2>Filters</h2>
           <p>Filter controls will be added in a later step.</p>
-        </section>
+          <div class="filter-placeholder">Trip type</div>
+          <div class="filter-placeholder">Budget range</div>
+          <div class="filter-placeholder">Duration</div>
+          <div class="filter-placeholder">Interests</div>
+        </aside>
 
-        <section class="recommendations-grid" aria-label="Recommendations grid">
-          <p class="empty-message">Recommendations will appear here after preferences are submitted.</p>
+        <section class="recommendations-area" aria-label="Recommendations grid">
+          <div class="empty-state">
+            <h2>No recommendations yet</h2>
+            <p>Recommendations will appear here after preferences are submitted.</p>
+            <a class="btn btn-secondary" href="preferences.html">Go to Preferences</a>
+          </div>
+
+          <div class="grid two-column-grid placeholder-card-grid" aria-label="Placeholder recommendation examples">
+            <article class="trip-card placeholder-trip-card">
+              <div class="image-placeholder">Placeholder image</div>
+              <div class="trip-card-body">
+                <p class="placeholder-label">Placeholder card</p>
+                <h3>Matching trip package</h3>
+                <p>Static layout example only. Real demo trips will be added later.</p>
+              </div>
+            </article>
+            <article class="trip-card placeholder-trip-card">
+              <div class="image-placeholder">Placeholder image</div>
+              <div class="trip-card-body">
+                <p class="placeholder-label">Placeholder card</p>
+                <h3>Recommended itinerary</h3>
+                <p>Future cards will include tags, price, duration, rating, and save actions.</p>
+              </div>
+            </article>
+          </div>
         </section>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-content">
-      <p>Email: <a href="mailto:support@personalizedtripplanner.com">support@personalizedtripplanner.com</a></p>
-      <p>Phone: +1 (555) 123-4567</p>
-      <p>
+    <div class="container footer-grid">
+      <div>
+        <h2>Personalized Trip Planner</h2>
+        <p>Plan friendly, personalized travel experiences from your preferences.</p>
+      </div>
+      <address class="footer-contact">
+        <p>Email: <a href="mailto:support@personalizedtripplanner.com">support@personalizedtripplanner.com</a></p>
+        <p>Phone: +1 (555) 123-4567</p>
+      </address>
+      <div class="footer-links">
         <a href="#">Facebook</a>
         <a href="#">Instagram</a>
         <a href="#">Twitter</a>
         <a href="#">Privacy Policy</a>
         <a href="#">Terms</a>
-      </p>
+      </div>
     </div>
   </footer>
 </body>

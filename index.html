@@ -11,40 +11,50 @@
   <header class="site-header">
     <div class="container header-content">
       <a class="site-logo" href="pages/home.html">Personalized Trip Planner</a>
-      <nav class="site-nav" aria-label="Main navigation">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        Menu
+      </button>
+      <nav class="site-nav" id="primary-nav" aria-label="Main navigation">
         <ul>
           <li><a href="pages/home.html">Home</a></li>
           <li><a href="pages/preferences.html">Plan a Trip</a></li>
           <li><a href="pages/recommendations.html">Recommendations</a></li>
           <li><a href="pages/my-trips.html">My Trips</a></li>
           <li><a href="pages/login.html">Login</a></li>
-          <li><a href="pages/signup.html">Sign Up</a></li>
+          <li><a class="nav-cta" href="pages/signup.html">Sign Up</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="section center-section">
+    <section class="section entry-section">
       <div class="container narrow-container">
+        <p class="section-label">Frontend course project</p>
         <h1>Welcome to Personalized Trip Planner</h1>
-        <p>Continue to the home page to start exploring the project.</p>
-        <a class="button" href="pages/home.html">Go to Home</a>
+        <p class="lead-text">This root page is the project entry point. Continue to the full website experience from here.</p>
+        <a class="btn btn-primary" href="pages/home.html">Go to Home</a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-content">
-      <p>Email: <a href="mailto:support@personalizedtripplanner.com">support@personalizedtripplanner.com</a></p>
-      <p>Phone: +1 (555) 123-4567</p>
-      <p>
+    <div class="container footer-grid">
+      <div>
+        <h2>Personalized Trip Planner</h2>
+        <p>Plan friendly, personalized travel experiences from your preferences.</p>
+      </div>
+      <address class="footer-contact">
+        <p>Email: <a href="mailto:support@personalizedtripplanner.com">support@personalizedtripplanner.com</a></p>
+        <p>Phone: +1 (555) 123-4567</p>
+      </address>
+      <div class="footer-links">
         <a href="#">Facebook</a>
         <a href="#">Instagram</a>
         <a href="#">Twitter</a>
         <a href="#">Privacy Policy</a>
         <a href="#">Terms</a>
-      </p>
+      </div>
     </div>
   </footer>
 </body>
