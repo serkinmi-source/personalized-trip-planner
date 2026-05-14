@@ -582,6 +582,47 @@ select:focus {
   text-align: center;
 }
 
+.field-error {
+  color: #B42318;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 6px 0 0;
+  min-height: 1.3em;
+}
+
+.form-message {
+  border-radius: 8px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding: 0;
+}
+
+.form-message--success {
+  background: #EAF8F0;
+  border: 1px solid rgba(39, 174, 96, 0.35);
+  color: #176B3A;
+  padding: 12px 14px;
+}
+
+.form-message--error {
+  background: #FEF3F2;
+  border: 1px solid rgba(180, 35, 24, 0.28);
+  color: #B42318;
+  padding: 12px 14px;
+}
+
+.invalid-field {
+  border-color: #B42318;
+}
+
+fieldset.invalid-field {
+  border: 0;
+}
+
+fieldset.invalid-field .checkbox-label {
+  border-color: rgba(180, 35, 24, 0.6);
+}
+
 /* Page sections */
 .auth-section {
   background: linear-gradient(180deg, var(--background), #F4FAFD);

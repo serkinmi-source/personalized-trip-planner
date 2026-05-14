@@ -1,1 +1,305 @@
-// Future responsibility: validate login, signup, preferences, and review forms.
+document.addEventListener("DOMContentLoaded", function () {
+  const loginForm = document.getElementById("login-form");
+  const signupForm = document.getElementById("signup-form");
+  const preferencesForm = document.getElementById("preferences-form");
+
+  if (loginForm) {
+    loginForm.addEventListener("submit", handleLoginSubmit);
+  }
+
+  if (signupForm) {
+    signupForm.addEventListener("submit", handleSignupSubmit);
+  }
+
+  if (preferencesForm) {
+    preferencesForm.addEventListener("submit", handlePreferencesSubmit);
+  }
+});
+
+// Checks whether an email value uses a simple valid email format.
+// Expects a string from an email input.
+// Returns true when the email format is acceptable.
+function validateEmail(email) {
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailPattern.test(email);
+}
+
+// Shows an error message beside a specific form field.
+// Expects the field id and the message text to display.
+// Updates the field styling, aria-invalid state, and matching error container.
+function showFieldError(fieldId, message) {
+  const field = document.getElementById(fieldId);
+  const errorElement = document.getElementById(fieldId + "-error");
+
+  if (field) {
+    field.classList.add("invalid-field");
+    field.setAttribute("aria-invalid", "true");
+  }
+
+  if (errorElement) {
+    errorElement.textContent = message;
+  }
+}
+
+// Clears the error message beside a specific form field.
+// Expects the field id whose error should be cleared.
+// Removes invalid styling and empties the matching error container.
+function clearFieldError(fieldId) {
+  const field = document.getElementById(fieldId);
+  const errorElement = document.getElementById(fieldId + "-error");
+
+  if (field) {
+    field.classList.remove("invalid-field");
+    field.removeAttribute("aria-invalid");
+  }
+
+  if (errorElement) {
+    errorElement.textContent = "";
+  }
+}
+
+// Shows a general message at the top of a form action area.
+// Expects a message container id, text, and type such as success or error.
+// Updates the visible form-level feedback message.
+function showFormMessage(messageId, message, type) {
+  const messageElement = document.getElementById(messageId);
+
+  if (!messageElement) {
+    return;
+  }
+
+  messageElement.textContent = message;
+  messageElement.className = "form-message form-message--" + type;
+}
+
+// Clears the general message for a form.
+// Expects the message container id to clear.
+// Removes visible text and success/error styling.
+function clearFormMessage(messageId) {
+  const messageElement = document.getElementById(messageId);
+
+  if (!messageElement) {
+    return;
+  }
+
+  messageElement.textContent = "";
+  messageElement.className = "form-message";
+}
+
+// Reads and trims a form field value.
+// Expects the id of an input or select element.
+// Returns an empty string when the field does not exist.
+function getFieldValue(fieldId) {
+  const field = document.getElementById(fieldId);
+  return field ? field.value.trim() : "";
+}
+
+// Handles login form submission.
+// Expects a submit event from the login form.
+// Prevents default submission and shows validation feedback.
+function handleLoginSubmit(event) {
+  event.preventDefault();
+
+  const formMessageId = "login-form-message";
+  clearFormMessage(formMessageId);
+  clearFieldError("login-email");
+  clearFieldError("login-password");
+
+  const email = getFieldValue("login-email");
+  const password = getFieldValue("login-password");
+  let isValid = true;
+
+  if (email === "") {
+    showFieldError("login-email", "Email is required.");
+    isValid = false;
+  } else if (!validateEmail(email)) {
+    showFieldError("login-email", "Enter a valid email address.");
+    isValid = false;
+  }
+
+  if (password === "") {
+    showFieldError("login-password", "Password is required.");
+    isValid = false;
+  } else if (password.length < 6) {
+    showFieldError("login-password", "Password must be at least 6 characters.");
+    isValid = false;
+  }
+
+  if (isValid) {
+    showFormMessage(formMessageId, "Login details look good. Full authentication will be added in a later phase.", "success");
+  } else {
+    showFormMessage(formMessageId, "Please fix the highlighted fields.", "error");
+  }
+}
+
+// Handles signup form submission.
+// Expects a submit event from the signup form.
+// Prevents default submission and shows validation feedback.
+function handleSignupSubmit(event) {
+  event.preventDefault();
+
+  const formMessageId = "signup-form-message";
+  clearFormMessage(formMessageId);
+
+  const fieldIds = ["first-name", "last-name", "signup-email", "signup-password", "confirm-password"];
+  fieldIds.forEach(clearFieldError);
+
+  const firstName = getFieldValue("first-name");
+  const lastName = getFieldValue("last-name");
+  const email = getFieldValue("signup-email");
+  const password = getFieldValue("signup-password");
+  const confirmPassword = getFieldValue("confirm-password");
+  let isValid = true;
+
+  if (firstName === "") {
+    showFieldError("first-name", "First name is required.");
+    isValid = false;
+  }
+
+  if (lastName === "") {
+    showFieldError("last-name", "Last name is required.");
+    isValid = false;
+  }
+
+  if (email === "") {
+    showFieldError("signup-email", "Email is required.");
+    isValid = false;
+  } else if (!validateEmail(email)) {
+    showFieldError("signup-email", "Enter a valid email address.");
+    isValid = false;
+  }
+
+  if (password === "") {
+    showFieldError("signup-password", "Password is required.");
+    isValid = false;
+  } else if (password.length < 8) {
+    showFieldError("signup-password", "Password must be at least 8 characters.");
+    isValid = false;
+  }
+
+  if (confirmPassword === "") {
+    showFieldError("confirm-password", "Confirm password is required.");
+    isValid = false;
+  } else if (confirmPassword !== password) {
+    showFieldError("confirm-password", "Confirm password must match password.");
+    isValid = false;
+  }
+
+  if (isValid) {
+    showFormMessage(formMessageId, "Account details look good. Full signup will be added in a later phase.", "success");
+  } else {
+    showFormMessage(formMessageId, "Please fix the highlighted fields.", "error");
+  }
+}
+
+// Handles trip preferences form submission.
+// Expects a submit event from the preferences form.
+// Prevents default submission, validates fields, and redirects after a short loading state.
+function handlePreferencesSubmit(event) {
+  event.preventDefault();
+
+  const formMessageId = "preferences-form-message";
+  clearFormMessage(formMessageId);
+
+  const fieldIds = ["trip-type", "budget", "duration-days", "travelers"];
+  fieldIds.forEach(clearFieldError);
+  clearInterestsError();
+
+  const tripType = getFieldValue("trip-type");
+  const budget = getFieldValue("budget");
+  const durationDays = getFieldValue("duration-days");
+  const travelers = getFieldValue("travelers");
+  const selectedInterests = document.querySelectorAll('input[name="interests"]:checked');
+  let isValid = true;
+
+  if (tripType === "") {
+    showFieldError("trip-type", "Trip type is required.");
+    isValid = false;
+  }
+
+  if (budget === "") {
+    showFieldError("budget", "Budget is required.");
+    isValid = false;
+  } else if (Number(budget) <= 0) {
+    showFieldError("budget", "Budget must be a positive number.");
+    isValid = false;
+  }
+
+  if (durationDays === "") {
+    showFieldError("duration-days", "Duration is required.");
+    isValid = false;
+  } else if (!isPositiveInteger(durationDays)) {
+    showFieldError("duration-days", "Duration must be a positive integer.");
+    isValid = false;
+  }
+
+  if (travelers === "") {
+    showFieldError("travelers", "Number of travelers is required.");
+    isValid = false;
+  } else if (!isPositiveInteger(travelers)) {
+    showFieldError("travelers", "Number of travelers must be a positive integer.");
+    isValid = false;
+  }
+
+  if (selectedInterests.length === 0) {
+    showInterestsError("Select at least one interest.");
+    isValid = false;
+  }
+
+  if (!isValid) {
+    showFormMessage(formMessageId, "Please fix the highlighted fields.", "error");
+    return;
+  }
+
+  const submitButton = event.target.querySelector('button[type="submit"]');
+  showFormMessage(formMessageId, "Preferences look good. Redirecting to recommendations...", "success");
+
+  if (submitButton) {
+    submitButton.textContent = "Generating...";
+    submitButton.disabled = true;
+  }
+
+  setTimeout(function () {
+    window.location.href = "recommendations.html";
+  }, 900);
+}
+
+// Checks whether a value is a positive whole number.
+// Expects a string or number from a numeric input.
+// Returns true only for integers greater than zero.
+function isPositiveInteger(value) {
+  const numberValue = Number(value);
+  return Number.isInteger(numberValue) && numberValue > 0;
+}
+
+// Shows an error for the interests checkbox group.
+// Expects the message text to display.
+// Updates the fieldset styling and checkbox group error message.
+function showInterestsError(message) {
+  const fieldset = document.getElementById("interests-fieldset");
+  const errorElement = document.getElementById("interests-error");
+
+  if (fieldset) {
+    fieldset.classList.add("invalid-field");
+  }
+
+  if (errorElement) {
+    errorElement.textContent = message;
+  }
+}
+
+// Clears the interests checkbox group error.
+// Expects no input.
+// Removes the fieldset invalid styling and empties its error message.
+function clearInterestsError() {
+  const fieldset = document.getElementById("interests-fieldset");
+  const errorElement = document.getElementById("interests-error");
+
+  if (fieldset) {
+    fieldset.classList.remove("invalid-field");
+  }
+
+  if (errorElement) {
+    errorElement.textContent = "";
+  }
+}
