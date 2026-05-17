@@ -78,7 +78,7 @@ function renderTripDetails(trip) {
         '</section>' +
         '<section class="detail-section">' +
           '<h2>Leave a Review</h2>' +
-          '<p>Review submission will be added in a later phase.</p>' +
+          '<p>This Part B demo displays local reviews and shows how a review form fits into the trip details page.</p>' +
           '<form class="review-placeholder-form" action="#" method="post">' +
             '<div class="form-group">' +
               '<label for="review-rating">Rating</label>' +
@@ -93,7 +93,7 @@ function renderTripDetails(trip) {
             '</div>' +
             '<div class="form-group">' +
               '<label for="review-text">Review text</label>' +
-              '<textarea id="review-text" name="reviewText" rows="5" placeholder="Review submission will be enabled later." disabled></textarea>' +
+              '<textarea id="review-text" name="reviewText" rows="5" placeholder="Review form preview for the client-side demo." disabled></textarea>' +
             '</div>' +
             '<button class="btn btn-secondary" type="button" disabled>Submit Review</button>' +
           '</form>' +
